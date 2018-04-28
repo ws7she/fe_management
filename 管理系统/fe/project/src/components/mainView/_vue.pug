@@ -1,0 +1,17 @@
+.main-view-container
+    .main-view-sider-nav
+        h1
+            i.fa.fa-area-chart.mr5 
+            |就业管理
+        el-menu(default-active='jiuye', mode='vertical', model='vertical', '@select'='handleSelect', theme='dark')
+            el-menu-item(index='jiuye') 就业信息管理
+            el-menu-item(index='danwei') 单位需求管理
+            el-menu-item(index='shengyuan') 生源系统管理
+            el-menu-item(index='lishi') 历史数据统计
+            el-menu-item(index='geren') 个人信息管理
+        .username-box
+            p {{username}}
+            p
+                a.logout-btn(href='javascript:;', '@click'='logout()') 退出
+    .main-view-wrap
+        router-view

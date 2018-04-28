@@ -1,0 +1,103 @@
+.view-container-detail
+    .btn-area
+        el-button(type="primary", @click='edit', :disabled='editStatus') 编辑
+        el-button(type="primary", @click='save', :disabled='!editStatus') 保存
+    .main-area
+        el-row
+            el-col(:span='8')
+                label.item-left 姓名
+                .item-right(v-if='!editStatus')  {{data.uname}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.uname", disabled)
+            el-col(:span='8')
+                label.item-left 性别
+                .item-right(v-if='!editStatus') {{data.sex}}
+                .item-right(v-if='editStatus') 
+                    el-radio(v-model='data.sex', label='男') 男
+                    el-radio(v-model='data.sex', label='女') 女
+
+            el-col(:span='8')
+                label.item-left 民族
+                .item-right(v-if='!editStatus') {{data.nation}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.nation")
+        el-row
+            el-col(:span='8')
+                label.item-left 学校
+                .item-right(v-if='!editStatus') {{data.school}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.school")
+            el-col(:span='8')
+                label.item-left 学院
+                .item-right(v-if='!editStatus') {{data.college}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.college")
+            el-col(:span='8')
+                label.item-left 专业
+                .item-right(v-if='!editStatus') {{data.major}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.major")
+        el-row
+            el-col(:span='8')
+                label.item-left 学号
+                .item-right(v-if='!editStatus') {{data.id}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.id", disabled)
+            el-col(:span='8')
+                label.item-left 证件号码
+                .item-right(v-if='!editStatus') {{data.card}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.card", disabled)
+            el-col(:span='8')
+                label.item-left 生源地
+                .item-right(v-if='!editStatus') {{data.birthplace}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.birthplace")
+        
+        el-row
+            el-col(:span='12')
+                label.item-left 单位名称
+                .item-right(v-if='!editStatus') {{data.company}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.company")
+            el-col(:span='12')
+                label.item-left 单位地址
+                .item-right(v-if='!editStatus') {{data.companyaddress}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.companyaddress")
+        el-row
+            el-col(:span='12')
+                label.item-left 行业
+                .item-right(v-if='!editStatus') {{data.industry}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.industry")
+            el-col(:span='12')
+                label.item-left 职位
+                .item-right(v-if='!editStatus') {{data.position}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.position")
+
+        el-row
+            el-col(:span='12')
+                label.item-left 单位电话
+                .item-right(v-if='!editStatus') {{data.companyphone}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.companyphone")
+            el-col(:span='12')
+                label.item-left 单位负责人
+                .item-right(v-if='!editStatus') {{data.companyower}}
+                .item-right(v-if='editStatus') 
+                    el-input(v-model="data.companyower")
+        el-row(v-if='data.shixistatus')
+            el-col(:span='12')
+                label.item-left 是否为实习生
+                .item-right {{data.shixistatus ? '是' : '否'}}
+            el-col(:span='12')
+                label.item-left 何时实习结束
+                .item-right {{data.shixideadline}}
+        el-row
+            el-col(:span='12')
+                label.item-left 预计毕业时间
+                .item-right(v-if='!editStatus') {{data.graduation}}
+                .item-right(v-if='editStatus') 
+                    el-date-picker(v-model='data.graduation', type="year", placeholder="请输入毕业年份")

@@ -1,0 +1,28 @@
+.login-container
+    h1.tit
+        i.fa.fa-code
+        |毕业生就业管理信息系统
+    form.login-form('@submit'='submit')
+        p.login-row
+            input.form-control(type='text', name='username', v-model='username',
+            placeholder='请输入学号',
+            ':readonly'='loading')
+            span(style='color: #aaa; margin-left: 5px; font-size: 14px')
+        p.login-row
+            input.form-control(type='password', name='password', v-model='password',
+            '@keyup.enter'="submit",
+            placeholder='请输入密码',
+            ':readonly'='loading')
+        p.login-row.text-danger
+            el-radio(v-model='isAdmin', :label='true') 管理员
+            el-radio(v-model='isAdmin', :label='false') 普通用户
+        p.login-row
+            button.btn.btn-primary.btn-sm.btn-block(type='submit',
+            ':disabled'='loading')
+                span(v-if='!loading') 登录
+                span(v-if='loading')
+                    i.fa.fa-spin.fa-spinner
+                    |loading...
+    p.power-by(v-if='!isAdmin')
+        span 没有账号？
+        a(href='javascript:void(0);', @click.stop='go2register',) 请注册

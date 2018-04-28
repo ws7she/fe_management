@@ -1,0 +1,89 @@
+.view-container-create
+    .btn-area
+        el-button(type="primary", @click='save') 保存
+    .main-area
+        el-row
+            el-col(:span='8')
+                label.item-left 姓名
+                .item-right
+                    el-input(v-model="sname")
+            el-col(:span='8')
+                label.item-left 性别
+                .item-right
+                    el-radio(v-model='sex', label='男') 男
+                    el-radio(v-model='sex', label='女') 女 
+
+            el-col(:span='8')
+                label.item-left 民族
+                .item-right
+                    el-input(v-model="snation")
+        el-row
+            el-col(:span='8')
+                label.item-left 学校
+                .item-right
+                    el-input(v-model="school")
+            el-col(:span='8')
+                label.item-left 学院
+                .item-right
+                    el-input(v-model="scollege")
+            el-col(:span='8')
+                label.item-left 专业
+                .item-right
+                    el-input(v-model="smajor")
+        el-row
+            el-col(:span='8')
+                label.item-left 学号
+                .item-right
+                    el-input(v-model="sid", :disabled='!isAdmin')
+            el-col(:span='8')
+                label.item-left 证件号码
+                .item-right
+                    el-input(v-model="scard")
+            el-col(:span='8')
+                label.item-left 生源地
+                .item-right
+                    el-input(v-model="birthplace")
+        
+        el-row
+            el-col(:span='12')
+                label.item-left 单位名称
+                .item-right
+                    el-input(v-model="scompany")
+            el-col(:span='12')
+                label.item-left 单位地址
+                .item-right
+                    el-input(v-model="scompanyaddress")
+        el-row
+            el-col(:span='12')
+                label.item-left 行业
+                .item-right
+                    el-input(v-model="sindustry")
+            el-col(:span='12')
+                label.item-left 职位
+                .item-right
+                    el-input(v-model="sposition")
+
+        el-row
+            el-col(:span='12')
+                label.item-left 单位电话
+                .item-right
+                    el-input(v-model="companyphone")
+            el-col(:span='12')
+                label.item-left 单位负责人
+                .item-right
+                    el-input(v-model="companyower")
+        el-row
+            el-col(:span='12')
+                label.item-left 是否为实习生
+                .item-right 
+                    el-radio(v-model='shixistatus', :label='true') 是
+                    el-radio(v-model='shixistatus', :label='false') 否
+            el-col(:span='12', v-if='shixistatus')
+                label.item-left 何时实习结束
+                .item-right 
+                    el-input(v-model="shixideadline")
+        el-row
+            el-col(:span='12')
+                label.item-left 预计毕业年份
+                .item-right  
+                    el-date-picker(v-model='graduation', type="year", placeholder="请输入毕业年份")
